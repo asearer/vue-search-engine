@@ -1,63 +1,67 @@
-import React, { useState } from 'react';
-
-// List of search engines
-const searchEngines = [
-    { name: 'Google', url: 'https://www.google.com/search?q=' },
-    { name: 'Bing', url: 'https://www.bing.com/search?q=' },
-    { name: 'DuckDuckGo', url: 'https://duckduckgo.com/?q=' },
-    { name: 'Yahoo', url: 'https://search.yahoo.com/search?p=' },
-    { name: 'Baidu', url: 'https://www.baidu.com/s?wd=' },
-    { name: 'Yandex', url: 'https://yandex.com/search/?text=' },
-    { name: 'Ask', url: 'https://www.ask.com/web?q=' },
-    { name: 'AOL', url: 'https://search.aol.com/aol/search?q=' },
-    { name: 'Wolfram Alpha', url: 'https://www.wolframalpha.com/input/?i=' },
-    { name: 'Scholar Google', url: 'https://scholar.google.com/scholar?q=' },
-    { name: 'Pinterest', url: 'https://www.pinterest.com/search/pins/?q=' },
-    { name: 'Reddit', url: 'https://www.reddit.com/search?q=' },
-    { name: 'Stack Overflow', url: 'https://stackoverflow.com/search?q=' },
-    { name: 'IMDb', url: 'https://www.imdb.com/find?q=' },
-];
-
-const SearchEngineDropdown = () => {
-    const [selectedEngine, setSelectedEngine] = useState(searchEngines[0].url); // Default to the first engine
-
-    const handleChange = (event) => {
-        const selected = event.target.value;
-        const selectedUrl = searchEngines.find(engine => engine.name === selected).url;
-        setSelectedEngine(selectedUrl);
-    };
-
-    const handleSearch = (query) => {
-        // Redirect user to the selected search engine with the search query
-        window.open(`${selectedEngine}${encodeURIComponent(query)}`, '_blank');
-    };
-
-    return (
-        <div>
-            <label htmlFor="search-engine">Choose a search engine:</label>
-            <select id="search-engine" onChange={handleChange}>
-                {searchEngines.map((engine, index) => (
-                    <option key={index} value={engine.name}>
-                        {engine.name}
-                    </option>
-                ))}
-            </select>
-
-            {/* Example search input and button to use selected search engine */}
-            <div>
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                            handleSearch(e.target.value);
-                        }
-                    }}
-                />
-                <button onClick={() => handleSearch(document.querySelector('input').value)}>Search</button>
-            </div>
-        </div>
-    );
-};
-
-export default SearchEngineDropdown;
+<template>
+    <div class="search-dropdown">
+      <label for="engine">Choose a search engine:</label>
+      <select v-model="selectedEngine" @change="emitEngineChange">
+        <option v-for="(url, name) in searchEngines" :key="name" :value="url">
+          {{ name }}
+        </option>
+      </select>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    data() {
+      return {
+        selectedEngine: '',
+        searchEngines: {
+          "Stack Overflow": "https://stackoverflow.com/search?q=",
+          "GitHub": "https://github.com/search?q=",
+          "MDN Web Docs": "https://developer.mozilla.org/en-US/search?q=",
+          "W3Schools": "https://www.w3schools.com/search/search.asp?q=",
+          "GeeksforGeeks": "https://www.geeksforgeeks.org/search/?q=",
+          "DevDocs": "https://devdocs.io/#q=",
+          "freeCodeCamp": "https://www.freecodecamp.org/search?q=",
+          "Codecademy": "https://www.codecademy.com/search?q=",
+          "Shodan": "https://www.shodan.io/search?query=",
+          "MIT OpenCourseWare": "https://ocw.mit.edu/search/?q=",
+          "Coursera": "https://www.coursera.org/search?query=",
+          "edX": "https://www.edx.org/search?q=",
+          "Kaggle": "https://www.kaggle.com/search?q=",
+          "Python Docs": "https://docs.python.org/3/search.html?q=",
+          "Khan Academy": "https://www.khanacademy.org/search?page_search_query=",
+          "Hackerrank": "https://www.hackerrank.com/domains/tutorials?q=",
+          "LeetCode": "https://leetcode.com/problemset/all/?search=",
+          "AWS Documentation": "https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=",
+          "Google Cloud Documentation": "https://cloud.google.com/docs/search?q=",
+          "Azure Docs": "https://docs.microsoft.com/en-us/search/?terms=",
+          "DigitalOcean Docs": "https://www.digitalocean.com/search?q=",
+          "Exploit Database": "https://www.exploit-db.com/search?q=",
+          "CVE Details": "https://www.cvedetails.com/google-search-results.php?q=",
+          "ElasticSearch Docs": "https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html#q=",
+          "Linux Man Pages Online": "https://man7.org/linux/man-pages/dir_section_1.html?search=",
+          "Oracle Documentation": "https://docs.oracle.com/en/search.html?q=",
+          "MongoDB Docs": "https://docs.mongodb.com/manual/search?q=",
+          "PostgreSQL Docs": "https://www.postgresql.org/search/?q=",
+          "Docker Documentation": "https://docs.docker.com/search?q=",
+          "Ansible Docs": "https://docs.ansible.com/ansible/latest/search.html?q=",
+          "Kubernetes Docs": "https://kubernetes.io/docs/search/?q=",
+          "Vim Tips Wiki": "https://vim.fandom.com/wiki/Special:Search?query=",
+          "Regex101": "https://regex101.com/?q="
+        }
+      };
+    },
+    methods: {
+      emitEngineChange() {
+        this.$emit("engine-change", this.selectedEngine);
+      }
+    }
+  };
+  </script>
+  
+  <style scoped>
+  .search-dropdown {
+    margin-bottom: 1rem;
+  }
+  </style>
+  
