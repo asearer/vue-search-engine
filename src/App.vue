@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Coding & Programming Search Engine</h1>
+    <h1>DevDocs Hub: Multi-Language Documentation Search</h1>
     <div class="search-container" role="search">
       <label for="search-engine" class="sr-only">Choose a search engine:</label>
       <select 
