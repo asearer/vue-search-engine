@@ -42,7 +42,7 @@ The application currently includes documentation search for:
 
    ```bash
    git clone https://github.com/asearer/vue-search-engine.git
-   cd coding-search-engine
+   cd vue-search-engine
    ```
 
 2. **Install Dependencies**:
