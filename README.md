@@ -1,25 +1,34 @@
-# Coding & Programming Search Engine
+# Programming Language Documentation Search
 
-This is a simple Vue.js application that allows users to search for programming-related content across various platforms. It features a dropdown menu to select from popular coding resources and documentation sites, making it easier for developers to find relevant information.
+This is a Vue.js application that helps developers quickly search through official programming language documentation. It features a dropdown menu to select different programming languages and frameworks, making it easier to find relevant documentation without having to navigate to multiple sites.
 
 ## Features
 
-- **Dropdown Menu**: Choose from a selection of popular coding and programming-related search engines.
-- **Real-time Search**: Automatically performs a search based on the user's input.
+- **Language Selection**: Choose from various programming languages and frameworks.
+- **Direct Documentation Search**: Search directly in official documentation sources.
 - **Open in New Tab**: Searches are opened in a new browser tab for convenience.
+- **Search History**: Track and revisit your recent searches.
+- **Local Storage**: Your search history persists between browser sessions.
 
-## Search Engines Included
+## Documentation Sources Included
 
-The application currently includes the following programming-related search engines:
+The application currently includes documentation search for:
 
-- [Stack Overflow](https://stackoverflow.com/search?q=): A question-and-answer site for programming.
-- [GitHub](https://github.com/search?q=): A platform for version control and collaboration.
-- [MDN Web Docs](https://developer.mozilla.org/en-US/search?q=): Comprehensive documentation for web technologies.
-- [W3Schools](https://www.w3schools.com/search/search.asp?q=): Tutorials and references on web development.
-- [GeeksforGeeks](https://www.geeksforgeeks.org/search/?q=): Articles and tutorials on programming concepts.
-- [DevDocs](https://devdocs.io/#q=): A documentation browser for developers.
-- [Codecademy](https://www.codecademy.com/search?q=): Interactive coding tutorials.
-- [freeCodeCamp](https://www.freecodecamp.org/search?q=): Learning to code through exercises and projects.
+- **Python**: Official Python documentation
+- **JavaScript**: Mozilla Developer Network (MDN) JavaScript reference
+- **Java**: Oracle Java documentation
+- **C++**: CPP Reference
+- **Ruby**: Ruby documentation
+- **PHP**: PHP manual
+- **Swift**: Swift documentation
+- **Rust**: Rust documentation
+- **Go**: Go documentation
+- **TypeScript**: TypeScript documentation
+- **Kotlin**: Kotlin reference
+- **React**: React documentation
+- **Vue.js**: Vue.js documentation
+- **Angular**: Angular documentation
+- **Node.js**: Node.js documentation
 
 ## Installation
 
@@ -54,10 +63,12 @@ The application currently includes the following programming-related search engi
 
 ## Usage
 
-1. Select your preferred search engine from the dropdown menu.
-2. Enter your programming-related search query in the search input field.
+1. Select the programming language or framework from the dropdown menu.
+2. Enter your search query related to that language's documentation.
 3. Press Enter or click the search button to perform the search.
-4. The results will open in a new tab on the selected search engine.
+4. The results will open in a new tab, taking you directly to the relevant documentation.
+5. View your recent searches in the history panel below the search bar.
+6. Click on any history item to quickly perform that search again.
 
 ## Contributing
 
