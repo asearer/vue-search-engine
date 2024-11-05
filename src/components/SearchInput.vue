@@ -1,10 +1,13 @@
 <template>
   <input
     type="text"
+    id="doc-search"
+    name="doc-search"
     :value="value"
     @input="$emit('input', $event.target.value)"
     @keyup.enter="$emit('search')"
-    placeholder="Search..."
+    placeholder="Search documentation..."
+    autocomplete="off"
   />
 </template>
 
